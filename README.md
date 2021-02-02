@@ -101,7 +101,7 @@ p,d,q: (2, 1, 1) x (0, 0, 0, 0)
 
 are the optimal parameters for the model, and we test the fitted model to find that it has a RMSE of 0.5689.
 
-We are able to visualize how this model is predicting into the future window, noting the extremely wide 95% confidence interval bands.
+We are able to visualize how this model is forecasting into the future window, noting the extremely wide 95% confidence interval bands.
 
 ![ARIMA_model](https://github.com/Nick-Kolowich/Forecasting-Natural-Gas-Prices-with-Exogenous-Variables-using-Gluon-TS/blob/main/images/ARIMA%20Model.png)
 
@@ -219,6 +219,12 @@ We can expand the efficacy of our model by making a few additions.
 
 ## Summary
 
-The Gluon-TS model indicates that the price of natural gas will slightly decline over the next two weeks. However, the RMSE for the model is 0.2202, and the model predicts the price will drop only a few cents. Therefore we cannot reliably advise a short on natural gas with a high degree of confidence. 
+The tuned model performed much better than either the ARIMA model or Gluon-TS with default hyperparameters. Below is each model and it's corresponding RMSE.
 
-The linear model indicates that natural gas is currently undervalued on a 10 year basis with the projected weather and storage values, yet with an r-squared of 0.09 the linear model's independent variables do not do a fantastic job of explaining the variability in the dependent variable, price. 
+|      |  ARIMA | default Gluon-TS | tuned Gluon-TS |   |
+|------|:------:|:----------------:|:--------------:|---|
+| RMSE | 0.5689 |      0.2330      |     0.1968     |   |
+
+The final Gluon-TS model indicates that the price of natural gas will slightly decline over the next two weeks. However, the RMSE for the model is 0.1968, and the model predicts the price will drop only a few cents. Therefore we cannot reliably advise a short position be opened on natural gas with a high degree of confidence given the room for error.
+
+The tuned model 
