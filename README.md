@@ -89,7 +89,7 @@ First, we create a simple ARIMA model to see how it will compare to the Gluon-TS
 ```python
 from pmdarima.arima import auto_arima
 
-auto_model = auto_arima(series, start_p=0, start_q=0)
+auto_model = auto_arima(train, start_p=0, start_q=0)
 
 print('Optimal p,d,q: {} x {}'.format(auto_model.order, auto_model.seasonal_order))
 ```
@@ -97,7 +97,7 @@ the auto_arima package determines that
 
 >p,d,q: (2, 1, 1) x (0, 0, 0, 0)
 
-are the optimal parameters for the model and we test the fitted model to find that it has a RMSE of 0.5689.
+are the optimal parameters for the model, and we test the fitted model to find that it has a RMSE of 0.5689.
 
 We are able to visualize how this model is predicting into the future window, noting the extremely wide 95% confidence interval bands.
 
@@ -115,11 +115,11 @@ Gluon-TS is a time series modeling toolkit designed to make probabilistic predic
 
 </br>
 
-GluonTS uses a series of LSTM layers to construct the forecasts. LSTM (Long Short-Term Memory) is a type of Recurrent Neural Network, which attempts to address the vanishing gradient problem through a series of 4 gates. These gates utilize a combination of sigmoid and tanh functions to control how much information passes through to the next cell. The sigmoid functions are the secret sauce to this model, because they are bounded between 0 and 1. They essentially determines how much information is lost or kept during each time step, with a value of "0" rejecting all of the hidden state input, and a value of "1" keeping all of the hidden state input and passing it onto the next cell. </br>
+GluonTS uses a series of LSTM layers to construct the forecasts. LSTM (Long Short-Term Memory) is a type of Recurrent Neural Network, which attempts to address the vanishing gradient problem through a series of 4 gates. These gates utilize a combination of sigmoid and tanh functions to control how much information passes through to the next cell. The sigmoid functions are important to this model, because they are bounded between 0 and 1. They essentially determines how much information is lost or kept during each time step, with a value of "0" rejecting all of the hidden state input, and a value of "1" keeping all of the hidden state input and passing it onto the next cell. </br>
 
 The target variable, "Price", and exogenous variables (what Gluon refers to as "dynamic features") are passed through the first LSTM layer. The output from this layer is concatenated into a single output. This output passes through its own LSTM layer before a single "Price" output is generated.
 
-Below is a schema for how the model formulates a single price output.
+Below is a basic schema for how the model formulates a single price output.
 
 ![schema](https://github.com/Nick-Kolowich/Forecasting-Natural-Gas-Prices-with-Exogenous-Variables-using-Gluon-TS/blob/main/images/model-diagram.png)
 
@@ -154,6 +154,8 @@ From this ensemble of predictions, we can establish a median prediction and conf
 
 ![in_sample_forecast](https://github.com/Nick-Kolowich/Forecasting-Natural-Gas-Prices-with-Exogenous-Variables-using-Gluon-TS/blob/main/images/in-sample%20prediction%20w%20conf_intervals.png)
 
+This model uses default hyperparameters and already shows a huge improvement over the ARIMA model with an RMSE of 0.2330.
+
 By scraping 2 week forecasts for the exogenous variables and appending them to the end of the data, we are able to forecast price into the future. 
 
 <p align="center">
@@ -168,7 +170,36 @@ and ... voila, a two week future price forecast.
 
 ## Tuned Gluon-TS Model
 
+Using AWS' SageMaker, we can further improve the model by tuning it's hyperparameters.
 
+```python
+from gluonts.model.deepar import DeepAREstimator
+from gluonts.mx.trainer import Trainer
+
+estimator_tuned = DeepAREstimator(freq=freq,
+                            num_layers = 4,
+                            num_cells = 44,
+                            cell_type = 'lstm',
+                            context_length=context_length,
+                            prediction_length=prediction_length,
+                            dropout_rate=0.46032325741405156,
+                            use_feat_dynamic_real=True,
+                            
+                            trainer=Trainer(epochs=30,
+                                            learning_rate=0.0025475023833545288,
+                                            batch_size=32
+                                            )
+                           )
+```
+We can test the model to see if accuracy has improved from the tuning.
+
+![tuned_model](https://github.com/Nick-Kolowich/Forecasting-Natural-Gas-Prices-with-Exogenous-Variables-using-Gluon-TS/blob/main/images/tuned%20model%20in-sample%20prediction%20w%20conf_intervals.png)
+
+We find that the tuned model has an RMSE of 0.1968, a slight improvement over the default Gluon-TS model and a vastly superior to the ARIMA model.
+
+Using the tuned model, we can create the most accurate future forecast.
+
+![tuned_future](https://github.com/Nick-Kolowich/Forecasting-Natural-Gas-Prices-with-Exogenous-Variables-using-Gluon-TS/blob/main/images/tuned%20model%20future%20forecast%20w%20conf_intervals.png)
 
 ## Future Work
 
@@ -182,9 +213,6 @@ We can expand the efficacy of our model by making a few additions.
 
 3. Connect to an API
    - add the ability to pull real-time price data from an API, to be able to generate forecasts going forward.
-
-4. Hyperparameter Tuning
-   - use AWS to further fine tune the hyperparameters and improve the model.
 
 
 ## Summary
