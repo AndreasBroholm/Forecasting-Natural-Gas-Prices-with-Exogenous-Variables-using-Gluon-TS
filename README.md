@@ -25,7 +25,9 @@ This project seeks to forecast natural gas prices two weeks into the future, usi
 [Price](README.md#Price)<br/>
 [Weather](README.md#Weather)<br/>
 [Storage](README.md#Storage) <br/>
+[ARIMA Model](README.md#ARIMA-Model)<br/>
 [Gluon-TS Model](README.md#Gluon-TS-Model)<br/>
+[Tuned Gluon-TS Model](README.md#Tuned-Gluon-TS-Model)<br/>
 [Future Work](README.md#Future-Work)<br/>
 [Summary](README.md#Summary) <br/>
 
@@ -142,6 +144,10 @@ By scraping 2 week forecasts for the exogenous variables and appending them to t
 and ... voila, a two week future price forecast.
 
 ![price_forecast](https://github.com/Nick-Kolowich/Forecasting-Natural-Gas-Prices-with-Exogenous-Variables-using-Gluon-TS/blob/main/images/future%20forecast%20w%20conf_intervals.png)
+
+## Tuned Gluon-TS Model
+
+
 
 ## Future Work
 
