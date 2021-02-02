@@ -95,7 +95,9 @@ print('Optimal p,d,q: {} x {}'.format(auto_model.order, auto_model.seasonal_orde
 ```
 the auto_arima package determines that 
 
->p,d,q: (2, 1, 1) x (0, 0, 0, 0)
+```python
+p,d,q: (2, 1, 1) x (0, 0, 0, 0)
+```
 
 are the optimal parameters for the model, and we test the fitted model to find that it has a RMSE of 0.5689.
 
