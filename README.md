@@ -82,6 +82,27 @@ Storage, the supply variable, has a strong seasonality component as well. Storag
 
 ![storage](https://github.com/Nick-Kolowich/Forecasting-Natural-Gas-Prices-with-Exogenous-Variables-using-Gluon-TS/blob/main/images/storage.png)
 
+## ARIMA Model
+
+First, we create a simple ARIMA model to see how it will compare to the Gluon-TS model. We employ the auto_arima package which utilizes a step-wise method to find the optimal p,d, & q values. 
+
+```python
+from pmdarima.arima import auto_arima
+
+auto_model = auto_arima(series, start_p=0, start_q=0)
+
+print('Optimal p,d,q: {} x {}'.format(auto_model.order, auto_model.seasonal_order))
+```
+the auto_arima package determines that 
+
+>p,d,q: (2, 1, 1) x (0, 0, 0, 0)
+
+are the optimal parameters for the model and we test the fitted model to find that it has a RMSE of 0.5689.
+
+We are able to visualize how this model is predicting into the future window, noting the extremely wide 95% confidence interval bands.
+
+![ARIMA_model](https://github.com/Nick-Kolowich/Forecasting-Natural-Gas-Prices-with-Exogenous-Variables-using-Gluon-TS/blob/main/images/ARIMA%20Model.png)
+
 ## Gluon-TS Model
 
 Gluon-TS is a time series modeling toolkit designed to make probabilistic predictions. This means that it creates an ensemble of predictions and uses that distribution to establish a median prediction and confidence interval bands.
