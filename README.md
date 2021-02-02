@@ -99,7 +99,7 @@ the auto_arima package determines that
 p,d,q: (2, 1, 1) x (0, 0, 0, 0)
 ```
 
-are the optimal parameters for the model, and we test the fitted model to find that it has a RMSE of 0.5689.
+are the optimal order values for the model, and we test the fitted model to find that it has a RMSE of 0.5689.
 
 We are able to visualize how this model is forecasting into the future window, noting the extremely wide 95% confidence interval bands.
 
