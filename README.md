@@ -216,7 +216,6 @@ We can expand the efficacy of our model by making a few additions.
 3. Connect to an API
    - add the ability to pull real-time price data from an API, to be able to generate forecasts going forward.
 
-
 ## Summary
 
 The tuned model performed much better than either the ARIMA model or Gluon-TS with default hyperparameters. Below is each model and it's corresponding RMSE.
@@ -225,6 +224,4 @@ The tuned model performed much better than either the ARIMA model or Gluon-TS wi
 |------|:------:|:----------------:|:--------------:|
 | RMSE | 0.5689 |      0.2330      |     0.1968     |
 
-The final Gluon-TS model indicates that the price of natural gas will slightly decline over the next two weeks. However, the RMSE for the model is 0.1968, and the model predicts the price will drop only a few cents. Therefore we cannot reliably advise a short position be opened on natural gas with a high degree of confidence given the room for error.
-
-The tuned model 
+The final Gluon-TS model indicates that the price of natural gas will slightly decline over the next two weeks. It could be profitable to open a short position on natural gas, monitoring any changes to the underlying weather/storage assumptions.
