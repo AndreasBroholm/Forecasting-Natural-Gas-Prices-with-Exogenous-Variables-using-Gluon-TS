@@ -216,7 +216,7 @@ We can expand the efficacy of our model by making a few additions.
 
 ## Summary
 
-The tuned model performed better than Gluon-TS with default hyperparameters but worse than the SARIMAX model. Below is each model and it's corresponding RMSE.
+The tuned model performed slightly better than Gluon-TS with default hyperparameters, but worse than the SARIMA model. Below is each model and it's corresponding RMSE.
 
 <p align="center">
   
