@@ -25,7 +25,7 @@ This project seeks to forecast natural gas prices two weeks into the future, usi
 [Price](README.md#Price)<br/>
 [Weather](README.md#Weather)<br/>
 [Storage](README.md#Storage) <br/>
-[ARIMA Model](README.md#ARIMA-Model)<br/>
+[SARIMA Model](README.md#ARIMA-Model)<br/>
 [Gluon-TS Model](README.md#Gluon-TS-Model)<br/>
 [Tuned Gluon-TS Model](README.md#Tuned-Gluon-TS-Model)<br/>
 [Future Work](README.md#Future-Work)<br/>
@@ -82,7 +82,7 @@ Storage, the supply variable, has a strong seasonality component as well. Storag
 
 ![storage](https://github.com/Nick-Kolowich/Forecasting-Natural-Gas-Prices-with-Exogenous-Variables-using-Gluon-TS/blob/main/images/storage.png)
 
-## ARIMA Model
+## SARIMA Model
 
 First, we create a simple ARIMA model to see how it will compare to the Gluon-TS model. We employ the auto_arima package which utilizes a step-wise method to find the optimal p,d, & q values. 
 
@@ -101,7 +101,7 @@ p,d,q: (2, 1, 1) x (0, 0, 0, 0)
 
 are the optimal order values for the model, and we test the fitted model to find that it has a RMSE of 0.05609.
 
-![ARIMA_model](https://github.com/Nick-Kolowich/Forecasting-Natural-Gas-Prices-with-Exogenous-Variables-using-Gluon-TS/blob/main/images/ARIMA%20in-sample%20prediction.png)
+![SARIMA_model](https://github.com/Nick-Kolowich/Forecasting-Natural-Gas-Prices-with-Exogenous-Variables-using-Gluon-TS/blob/main/images/ARIMA%20in-sample%20prediction.png)
 
 ## Gluon-TS Model
 
@@ -154,7 +154,7 @@ From this ensemble of predictions, we can establish a median prediction and conf
 
 ![in_sample_forecast](https://github.com/Nick-Kolowich/Forecasting-Natural-Gas-Prices-with-Exogenous-Variables-using-Gluon-TS/blob/main/images/in-sample%20prediction%20w%20conf_intervals.png)
 
-This model uses default hyperparameters and provides a slightly less robust forecast than the SARIMAX model with an RMSE of 0.2213.
+This model uses default hyperparameters and provides a slightly less robust forecast than the SARIMA model with an RMSE of 0.2213.
 
 By scraping 2 week forecasts for the exogenous variables and appending them to the end of the data, we are able to forecast price into the future. 
 
@@ -220,13 +220,13 @@ The tuned model performed better than Gluon-TS with default hyperparameters but 
 
 <p align="center">
   
-|      |  ARIMA | default Gluon-TS | tuned Gluon-TS |
+|      |  SARIMA | default Gluon-TS | tuned Gluon-TS |
 |------|:------:|:----------------:|:--------------:|
 | RMSE | 0.05609 |      0.2213      |     0.2123     |
 
 </p>
 
-While Gluon-TS may provide a more authentic forecast, depending on the dataset, the SARIMAX model still outperforms the neural network for a short-term prediction.
+While Gluon-TS may provide a more authentic forecast, depending on the dataset, the SARIMA model still outperforms the neural network for a short-term prediction.
 
 The final Gluon-TS model indicates that the price of natural gas will slightly decline over the next two weeks. It could be profitable to open a short position on natural gas, monitoring any changes to the underlying weather/storage assumptions.
 
