@@ -172,24 +172,37 @@ and ... voila, a two week future price forecast.
 
 Using AWS' SageMaker, we can further improve the model by tuning it's hyperparameters.
 
+The hyperparameters tuned were either IntegerParameters or ContinuousParameters, there were no CategoricalParameters used in the model. Below are the ranges used to tune on SageMaker's hyperparameter tuner:
+
+```python
+tuned_hyperparameter_ranges = {
+                               'num_cells' : IntegerParameter(30, 200),
+                               'num_layers' : IntegerParameter(1, 4),
+                               'dropout_rate' : ContinuousParameter(0.0, 0.9),
+                               'learning_rate' : ContinuousParameter(1e-5, 0.1)
+                               }
+```
+
+SageMaker ran 50 different models with various combinations of these hyperparameters and determined the best combination which sought to minimize RMSE. We used this combination of optimal hyperparameters to develop the tuned model in the next section of the notebook.
+
 ```python
 from gluonts.model.deepar import DeepAREstimator
 from gluonts.mx.trainer import Trainer
 
 estimator_tuned = DeepAREstimator(freq=freq,
-                            num_layers = 4,
-                            num_cells = 44,
-                            cell_type = 'lstm',
-                            context_length=context_length,
-                            prediction_length=prediction_length,
-                            dropout_rate=0.46032325741405156,
-                            use_feat_dynamic_real=True,
+                                  num_layers = 4,
+                                  num_cells = 44,
+                                  cell_type = 'lstm',
+                                  context_length=context_length,
+                                  prediction_length=prediction_length,
+                                  dropout_rate=0.46032325741405156,
+                                  use_feat_dynamic_real=True,
                             
-                            trainer=Trainer(epochs=30,
-                                            learning_rate=0.0025475023833545288,
-                                            batch_size=32
-                                            )
-                           )
+                                  trainer=Trainer(epochs=30,
+                                                  learning_rate=0.0025475023833545288,
+                                                  batch_size=32
+                                                  )
+                                 )
 ```
 We can test the model to see if accuracy has improved from the tuning.
 
