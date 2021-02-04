@@ -183,7 +183,7 @@ tuned_hyperparameter_ranges = {
                                }
 ```
 
-SageMaker ran 50 different models with various combinations of these hyperparameters and determined the best combination which sought to minimize RMSE. We used this combination of optimal hyperparameters to develop the tuned model in the next section of the notebook.
+SageMaker ran 50 different models with various combinations of these hyperparameters and determined the best combination which sought to minimize RMSE. We used this combination of optimal hyperparameters to develop the tuned model below.
 
 ```python
 from gluonts.model.deepar import DeepAREstimator
