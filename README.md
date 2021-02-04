@@ -230,4 +230,6 @@ The tuned model performed much better than either the ARIMA model or Gluon-TS wi
 
 The final Gluon-TS model indicates that the price of natural gas will slightly decline over the next two weeks. It could be profitable to open a short position on natural gas, monitoring any changes to the underlying weather/storage assumptions.
 
-This model was created during the height of winter, the most historically volatile period for natural gas prices. The model's median forecast is fairly stable and does not imply huge volatility in either direction over the next two weeks. Energy grid operators could take advantage of this low implied volatility environment by either selling some of their hedges or locking in higher priced delivery contracts if the opportunity arises.
+This model was created during the height of winter, the most historically volatile period for natural gas prices. The model's median forecast is fairly stable and does not imply huge volatility in either direction over the next two weeks. 
+
+Energy grid operators could take advantage of this low implied volatility environment by either selling some of their hedges or locking in higher priced delivery contracts if the opportunity arises given that their costs should remain relatively flat.
