@@ -99,11 +99,9 @@ the auto_arima package determines that
 p,d,q: (2, 1, 1) x (0, 0, 0, 0)
 ```
 
-are the optimal order values for the model, and we test the fitted model to find that it has a RMSE of 0.5689.
+are the optimal order values for the model, and we test the fitted model to find that it has a RMSE of 0.05609.
 
-We are able to visualize how this model is forecasting into the future window, noting the extremely wide 95% confidence interval bands.
-
-![ARIMA_model](https://github.com/Nick-Kolowich/Forecasting-Natural-Gas-Prices-with-Exogenous-Variables-using-Gluon-TS/blob/main/images/ARIMA%20Model.png)
+![ARIMA_model]https://github.com/Nick-Kolowich/Forecasting-Natural-Gas-Prices-with-Exogenous-Variables-using-Gluon-TS/blob/main/images/ARIMA%20in-sample%20prediction.png
 
 ## Gluon-TS Model
 
