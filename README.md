@@ -25,7 +25,7 @@ This project seeks to forecast natural gas prices two weeks into the future, usi
 [Price](README.md#Price)<br/>
 [Weather](README.md#Weather)<br/>
 [Storage](README.md#Storage) <br/>
-[SARIMA Model](README.md#ARIMA-Model)<br/>
+[SARIMA Model](README.md#SARIMA-Model)<br/>
 [Gluon-TS Model](README.md#Gluon-TS-Model)<br/>
 [Tuned Gluon-TS Model](README.md#Tuned-Gluon-TS-Model)<br/>
 [Future Work](README.md#Future-Work)<br/>
@@ -84,7 +84,7 @@ Storage, the supply variable, has a strong seasonality component as well. Storag
 
 ## SARIMA Model
 
-First, we create a simple ARIMA model to see how it will compare to the Gluon-TS model. We employ the auto_arima package which utilizes a step-wise method to find the optimal p,d, & q values. 
+First, we create a simple SARIMA model to see how it will compare to the Gluon-TS model. We employ the auto_arima package which utilizes a step-wise method to find the optimal p,d, & q values. 
 
 ```python
 from pmdarima.arima import auto_arima
@@ -99,9 +99,9 @@ the auto_arima package determines that
 p,d,q: (2, 1, 1) x (0, 0, 0, 0)
 ```
 
-are the optimal order values for the model, and we test the fitted model to find that it has a RMSE of 0.05609.
+are the optimal order values for the model, and we test the fitted model to find that it has a RMSE of 0.1612.
 
-![SARIMA_model](https://github.com/Nick-Kolowich/Forecasting-Natural-Gas-Prices-with-Exogenous-Variables-using-Gluon-TS/blob/main/images/ARIMA%20in-sample%20prediction.png)
+![SARIMA_model](https://github.com/Nick-Kolowich/Forecasting-Natural-Gas-Prices-with-Exogenous-Variables-using-Gluon-TS/blob/main/images/SARIMA%20in-sample%20prediction.png)
 
 ## Gluon-TS Model
 
