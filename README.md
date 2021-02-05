@@ -154,7 +154,7 @@ From this ensemble of predictions, we can establish a median prediction and conf
 
 ![in_sample_forecast](https://github.com/Nick-Kolowich/Forecasting-Natural-Gas-Prices-with-Exogenous-Variables-using-Gluon-TS/blob/main/images/in-sample%20prediction%20w%20conf_intervals.png)
 
-This model uses default hyperparameters and provides a slightly less robust forecast than the SARIMA model with an RMSE of 0.2213.
+This model uses default hyperparameters and provides a slightly less robust forecast than the SARIMA model with an RMSE of 0.2359.
 
 By scraping 2 week forecasts for the exogenous variables and appending them to the end of the data, we are able to forecast price into the future. 
 
@@ -208,7 +208,7 @@ We can test the model to see if accuracy has improved from the tuning.
 
 ![tuned_model](https://github.com/Nick-Kolowich/Forecasting-Natural-Gas-Prices-with-Exogenous-Variables-using-Gluon-TS/blob/main/images/tuned%20model%20in-sample%20prediction%20w%20conf_intervals.png)
 
-We find that the tuned model has an RMSE of 0.1968, a slight improvement over the default Gluon-TS model.
+We find that the tuned model has an RMSE of 0.2021, a 14.37% improvement over the default Gluon-TS model.
 
 Using the tuned model, we can create the most accurate future forecast.
 
