@@ -231,11 +231,13 @@ We can expand the efficacy of our model by making a few additions.
 
 The tuned model performed much better than Gluon-TS with default hyperparameters, yet slightly worse than the SARIMA model. This indicates that while Gluon-TS maybe better suited for more authentic forecasts, or forecasts using many dynamic features, traditional SARIMA models may slightly outperform the neural networks for a short-term forecast. Below is each model and it's corresponding RMSE:
 
-  
+<div align="center">
+
 |      |  SARIMA | default Gluon-TS | tuned Gluon-TS |
 |------|:------:|:----------------:|:--------------:|
 | RMSE | 0.1612 |      0.2359      |     0.2021     |
 
+</div> 
 
 The final Gluon-TS model indicates that the price of natural gas will slightly decline over the next two weeks. It could be profitable to open a short position on natural gas, monitoring any changes to the underlying weather/storage assumptions.
 
