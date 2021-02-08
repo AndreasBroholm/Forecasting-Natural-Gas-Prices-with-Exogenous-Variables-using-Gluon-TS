@@ -64,7 +64,7 @@ The price data intially contained all of the closing prices between 1991-2020. B
 
 ## Weather
 
-Degree days are a measure of the distance from 65°F on a given day. At 65°F, there is very little for heating or cooling. Each 1° deviation from this mean is counted as a degree day, with values under 65° being HDDs, and values over being CDDs.
+Degree days are a measure of the distance from 65°F on a given day. At 65°F, there is very little for heating or cooling. Each 1° deviation from this temperature is counted as a degree day, with values under 65° being HDDs, and values over being CDDs.
 
 Degree days are a good proxy for the demand of natural gas. Temperatures are collected from over 200 major weather stations around the country and used to construct a HDD and CDD value for each day, based on regional population proportionality.
 
