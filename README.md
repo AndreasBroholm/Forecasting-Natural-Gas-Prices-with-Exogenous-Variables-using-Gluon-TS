@@ -156,7 +156,7 @@ From this ensemble of predictions, we can establish a median prediction and conf
 
 This model uses default hyperparameters and provides a slightly less robust forecast than the SARIMA model with an RMSE of 0.2359.
 
-By scraping 2 week forecasts for the exogenous variables and appending them to the end of the data, we are able to forecast price into the future. 
+By scraping 2 week forecasts for the exogenous variables and appending them to the end of the data, we are able to generate a price forecast for the future window. 
 
 <p align="center">
   <a href="https://github.com/Nick-Kolowich/Forecasting-Natural-Gas-Prices-with-Exogenous-Variables-using-Gluon-TS/blob/main/images/future%20data%20screenshot.png" title="future data">
