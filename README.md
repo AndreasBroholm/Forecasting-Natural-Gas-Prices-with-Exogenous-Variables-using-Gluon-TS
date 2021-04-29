@@ -64,7 +64,7 @@ The price data intially contained all of the closing prices between 1991-2020. B
 
 ## Weather
 
-Degree days are a measure of the distance from 65°F on a given day. At 65°F, there is very little for heating or cooling. Each 1° deviation from this mean is counted as a degree day, with values under 65° being HDDs, and values over being CDDs.
+Degree days are a measure of the distance from 65°F on a given day. At 65°F, there is very little for heating or cooling. Each 1° deviation from this temperature is counted as a degree day, with values under 65° being HDDs, and values over being CDDs.
 
 Degree days are a good proxy for the demand of natural gas. Temperatures are collected from over 200 major weather stations around the country and used to construct a HDD and CDD value for each day, based on regional population proportionality.
 
@@ -156,7 +156,7 @@ From this ensemble of predictions, we can establish a median prediction and conf
 
 This model uses default hyperparameters and provides a slightly less robust forecast than the SARIMA model with an RMSE of 0.2359.
 
-By scraping 2 week forecasts for the exogenous variables and appending them to the end of the data, we are able to forecast price into the future. 
+By scraping 2 week forecasts for the exogenous variables and appending them to the end of the data, we are able to generate a price forecast for the future window. 
 
 <p align="center">
   <a href="https://github.com/Nick-Kolowich/Forecasting-Natural-Gas-Prices-with-Exogenous-Variables-using-Gluon-TS/blob/main/images/future%20data%20screenshot.png" title="future data">
@@ -231,11 +231,13 @@ We can expand the efficacy of our model by making a few additions.
 
 The tuned model performed much better than Gluon-TS with default hyperparameters, yet slightly worse than the SARIMA model. This indicates that while Gluon-TS maybe better suited for more authentic forecasts, or forecasts using many dynamic features, traditional SARIMA models may slightly outperform the neural networks for a short-term forecast. Below is each model and it's corresponding RMSE:
 
-  
+<div align="center">
+
 |      |  SARIMA | default Gluon-TS | tuned Gluon-TS |
 |------|:------:|:----------------:|:--------------:|
 | RMSE | 0.1612 |      0.2359      |     0.2021     |
 
+</div> 
 
 The final Gluon-TS model indicates that the price of natural gas will slightly decline over the next two weeks. It could be profitable to open a short position on natural gas, monitoring any changes to the underlying weather/storage assumptions.
 
