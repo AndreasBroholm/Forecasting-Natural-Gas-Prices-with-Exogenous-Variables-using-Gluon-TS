@@ -154,7 +154,7 @@ From this ensemble of predictions, we can establish a median prediction and conf
 
 ![in_sample_forecast](https://github.com/Nick-Kolowich/Forecasting-Natural-Gas-Prices-with-Exogenous-Variables-using-Gluon-TS/blob/main/images/in-sample%20prediction%20w%20conf_intervals.png)
 
-This model uses default hyperparameters and provides a slightly less robust forecast than the SARIMA model with an RMSE of 0.2359.
+This model uses default hyperparameters and provides a slightly less robust forecast than the SARIMA model with an RMSE of 0.2254.
 
 By scraping 2 week forecasts for the exogenous variables and appending them to the end of the data, we are able to generate a price forecast for the future window. 
 
@@ -208,7 +208,7 @@ We can test the model to see if accuracy has improved from the tuning.
 
 ![tuned_model](https://github.com/Nick-Kolowich/Forecasting-Natural-Gas-Prices-with-Exogenous-Variables-using-Gluon-TS/blob/main/images/tuned%20model%20in-sample%20prediction%20w%20conf_intervals.png)
 
-We find that the tuned model has an RMSE of 0.2021, a 14.37% improvement over the default Gluon-TS model.
+We find that the tuned model has an RMSE of 0.1246, a 44.71% improvement over the default Gluon-TS model!
 
 Using the tuned model, we can create the most accurate future forecast.
 
@@ -229,13 +229,13 @@ We can expand the efficacy of our model by making a few additions.
 
 ## Summary
 
-The tuned model performed much better than Gluon-TS with default hyperparameters, yet slightly worse than the SARIMA model. This indicates that while Gluon-TS maybe better suited for more authentic forecasts, or forecasts using many dynamic features, traditional SARIMA models may slightly outperform the neural networks for a short-term forecast. Below is each model and it's corresponding RMSE:
+The tuned model performed much better than either the Gluon-TS model with default hyperparameters or the SARIMA model. This indicates that Gluon-TS may be better suited for more authentic forecasts and the exogenous variables have some explanatory power about price. Below is each model and it's corresponding RMSE:
 
 <div align="center">
 
 |      |  SARIMA | default Gluon-TS | tuned Gluon-TS |
 |------|:------:|:----------------:|:--------------:|
-| RMSE | 0.1612 |      0.2359      |     0.2021     |
+| RMSE | 0.1612 |      0.2253      |     0.1246     |
 
 </div> 
 
