@@ -119,10 +119,6 @@ GluonTS uses a series of LSTM layers to construct the forecasts. LSTM (Long Shor
 
 The target variable, "Price", and exogenous variables (what Gluon refers to as "dynamic features") are passed through the first LSTM layer. The output from this layer is concatenated into a single output. This output passes through its own LSTM layer before a single "Price" output is generated.
 
-Below is a basic schema for how the model formulates a single price output.
-
-![schema](https://github.com/Nick-Kolowich/Forecasting-Natural-Gas-Prices-with-Exogenous-Variables-using-Gluon-TS/blob/main/images/model-diagram.png)
-
 One of the most difficult parts about using Gluon-TS is adapting the parallel time series data into a format that the model can parse. The ListDataset() method converts the series into a list of dictionaries. 
 
 ```python
