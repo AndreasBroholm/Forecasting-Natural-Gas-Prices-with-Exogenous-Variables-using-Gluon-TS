@@ -13,7 +13,7 @@ Natural gas has quickly become one of the most important fuels of the 21st centu
 
 It has become increasingly adopted by the energy generation sector, natural gas created less than 25% of all electricity in the US in 2011, but today accounts for about 41.1%.
 
-Because of its wide array of uses, natural gas and its corresponding derivatives, or futures contracts, are heavily traded. Commercial buyers and speculators alike seek to identify the true value of natural gas as its price fluctuates. Our approach combines two exogenous variables: degree days, a proxy for demand, and underground storage data, a measure of supply, to build a more comprehensive price prediction model.
+Because of its wide array of uses, natural gas and its corresponding derivatives, or futures contracts, are heavily traded. Commercial buyers and speculators alike seek to identify the true value of natural gas as its price fluctuates. Our approach combines two exogenous variables: degree days (a proxy for demand) and underground storage data (a measure of supply) to build a more comprehensive price prediction model.
 
 This project seeks to forecast natural gas prices two weeks into the future, using the cutting edge Gluon-TS library, a deep learning time series model developed at Amazon. 
 
