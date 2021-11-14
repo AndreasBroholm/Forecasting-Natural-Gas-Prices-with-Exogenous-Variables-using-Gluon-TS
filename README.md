@@ -225,7 +225,7 @@ We can expand the efficacy of our model by making a few additions.
 
 ## Summary
 
-The tuned model performed much better than either the Gluon-TS model with default hyperparameters or the SARIMA model. This indicates that Gluon-TS may be better suited for more authentic forecasts and the exogenous variables may have some additional explanatory power about price. Below is each model and it's corresponding RMSE:
+The tuned model performed much better than either the Gluon-TS model with default hyperparameters or the SARIMA model. This indicates that Gluon-TS may be better suited for more authentic forecasts and the exogenous variables may have some additional explanatory power about price. Below is each model and its corresponding RMSE:
 
 <div align="center">
 
