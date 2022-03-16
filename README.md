@@ -166,7 +166,7 @@ and ... voila, a two week future price forecast.
 
 ## Tuned Gluon-TS Model
 
-Using AWS' SageMaker, we can further improve the model by tuning it's hyperparameters.
+Using AWS' SageMaker, we can further improve the model by tuning its hyperparameters.
 
 The hyperparameters tuned were either IntegerParameters or ContinuousParameters, there were no CategoricalParameters used in the model. Below are the ranges used to tune on SageMaker's hyperparameter tuner:
 
