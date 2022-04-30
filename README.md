@@ -11,7 +11,7 @@
 
 Natural gas has quickly become one of the most important fuels of the 21st century. It is the cleanest burning hydrocarbon, an odorless, colorless, and non-toxic gas which has a wide variety of applications. It provides warmth for cooking and heating, and fuels the power stations that provide electricity to homes and businesses. It also is a key input for many industrial processes, such as the manufacturing of glass and clothing, as well as paints, plastics, and fertilizer. 
 
-It has become increasingly adopted by the energy generation sector, natural gas created less than 25% of all electricity in the US in 2011, but today accounts for about 41.1%.
+It has become increasingly adopted by the energy generation sector; natural gas created less than 25% of all electricity in the US in 2011, but today accounts for about 41.1%.
 
 Because of its wide array of uses, natural gas and its corresponding derivatives, or futures contracts, are heavily traded. Commercial buyers and speculators alike seek to identify the true value of natural gas as its price fluctuates. Our approach combines two exogenous variables: degree days (a proxy for demand) and underground storage data (a measure of supply) to build a more comprehensive price prediction model.
 
